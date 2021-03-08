@@ -27,7 +27,7 @@ maxWidth: 345,
     },
     media: {
 height: 0,
-      paddingTop: '56.25%', // 16:9
+paddingTop: '56.25%', 
     },
     expand: {
 transform: 'rotate(0deg)',
@@ -63,19 +63,8 @@ export default function RecipeCards({ posts, addFavorite }) {
     },[category])
 
 
-    const [pictures, setPictures] = useState()
-    useEffect(() => {
-    fetch("http://localhost:4000/recipes/pictures")
-    .then(res => res.json())
-    .then(data => setPictures(data))
-}, [])
-
-console.log(pictures)
-
-
     return (
         <>
-
         { !category ? (
             <Box m={1} p={1} id="collection">
         {posts && posts.map((post) => {
@@ -83,10 +72,7 @@ console.log(pictures)
             <Card className={classes.root} id="recipe">
             <CardHeader id="recipeTitle"
         title={post.title} />
-        <CardMedia
-        className={classes.media}
-        image=""
-        title="" />
+        <CardMedia className={classes.media} image={`http://localhost:4000/${post.slug}.png`} title=""/>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p" id="recipeText">
         <p>By Chef {post.author}</p>
@@ -108,9 +94,7 @@ console.log(pictures)
         </IconButton>
         </CardActions>
     </Card>
-
             </Box> )})}
-
             </Box>
         )
         : (
@@ -119,10 +103,7 @@ console.log(pictures)
             <Card className={classes.root} id="recipe">
             <CardHeader id="recipeTitle"
         title={categoryResult && categoryResult.title} />
-        <CardMedia
-        className={classes.media}
-        image=""
-        title="" />
+       <CardMedia className={classes.media} image={`http://localhost:4000/${categoryResult && categoryResult.slug}.png`} title=""/>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p" id="recipeText">
         <p>By Chef {categoryResult && categoryResult.author}</p>
@@ -143,17 +124,11 @@ console.log(pictures)
         </IconButton>
         </CardActions>
         </CardContent>
-
     </Card>
-
             </Box> 
-
             </Box>
         )
         }
-
-        
-
 </>
     )
 }

@@ -92,7 +92,7 @@ export default function Home({ posts }) {
                 
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image="" title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${posts[randomNum].slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>
         </div>
