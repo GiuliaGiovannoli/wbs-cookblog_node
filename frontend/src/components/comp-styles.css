@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
+h4, h5, h6, p, #recipeText {
+    color: #282c34 !important;
+}
+
+h1, h2, span.MuiTypography-root {
+    font-family: "Rock Salt", cursive !important;
+    color: rgb(209, 37, 37) !important;
+}
+
+#collection, .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#card {
+    width: 30%;
+    text-align: center;
+}
+
+#collection, #card {
+    background-color: lightgray;
+}
+
+#recipe {
+    border: 2px solid rgb(209, 37, 37);
+}
+
+#recipeGrid {
+    background-color:lightgray;
+}
+
+#recipeCard {
+    background-color: white;
+    border: 2px solid rgb(209, 37, 37);
+    width: 90%;
+    color: #282c34;
+    margin: 5% 5%;
+    
+}
+
+#pic {
+    width: 40%;
+    margin: 1%;
+}
+
+
+@media only screen and (max-width: 700px) {
+    #collection {
+        display: block;
+    }
+    #card {
+        width: 90%;
+    }
+    #recipeCard {
+        width: 90%;
+        margin: 5%;
+    }
+    #pic {
+        width: 25%;
+        margin: 1%;
+    }
+}

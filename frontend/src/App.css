@@ -1,0 +1,16 @@
+.App {
+    text-align: center;
+}
+
+/* .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+} */
+
+@media only screen and (max-width: 780px) {
+#four {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+}
