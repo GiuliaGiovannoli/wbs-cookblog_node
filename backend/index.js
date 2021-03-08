@@ -17,7 +17,7 @@ const pool = new Pool({
 })
 
 //pictures
-app.post('/recipes/pictures', (req, res) => {
+app.post('/recipes/', (req, res) => {
     const pictures = {
         text: `INSERT INTO Recipes (picture) VALUES ($1) RETURNING *`,
         values: []

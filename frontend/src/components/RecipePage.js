@@ -48,6 +48,7 @@ export default function RecipePage({posts}) {
         }
       },[slug])
 
+
 return (
     <>
     { slug ? (
@@ -79,7 +80,7 @@ return (
                 
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image="" title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${slugResult && slugResult.slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>
         </div>
@@ -115,7 +116,7 @@ return (
                 </Typography>
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image="" title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${post.slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>
         </div>
