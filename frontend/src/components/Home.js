@@ -18,6 +18,8 @@ import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
+import Wewantyou from '../public/wewantyou.jpg'
+
 const useStyles = makeStyles({
     card: {
         display: 'flex',
@@ -60,6 +62,15 @@ export default function Home({ posts }) {
         <Link to="/allrecipes/vegetarian" className="link">Vegetarian</Link>
         </div>
     </div>
+
+    <div className="container" id="uploading">
+<h2>We want you!</h2>
+<img className="wewant" src={Wewantyou} alt="wewantyou!" />
+<p>Hi! You are enjoying and trying our Recipes but now you are starting to create also Recipes on your own.. Great! Then here we have an entire section dedicated to you!
+Here you can upload your own Recipes and share them within our blog and be part of our great community. So what are you waiting, just click here and start experimenting!</p>
+<Link to="uploadsection" className="link">Upload here your own Recipes</Link>
+
+</div>
 
     <div className="container">
         <h2>Dish of the Day</h2>
