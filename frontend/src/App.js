@@ -8,9 +8,18 @@ import Favorites from './components/Favorites'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Home from './components/Home'
+import Uploads from './components/Uploads'
 import RecipeCards from './components/RecipeCards'
 import RecipePage from './components/RecipePage'
 import './App.css';
+
+/* let BACKEND_URL
+
+if (process.env.NODE_ENV === 'production') {
+  BACKEND_URL = process.env.REACT_APP_PROD_URL // 'https://myapponheroku.herokuapp.com'
+} else {
+  BACKEND_URL = process.env.REACT_APP_DEV_URL // 'http://localhost:4000'
+} */
 
 
 function App() {
@@ -28,9 +37,11 @@ function App() {
             } 
           } else return prevPost })
     setPosts(newObjArr)}
+
+    // Everytime you are calling your backend, replace localhost:4000
   
     useEffect(() => {
-      fetch("http://localhost:4000/recipes")
+      fetch('http://localhost:4000/api/recipes')
       .then(res => res.json())
       .then(data => setPosts(data.map((post)=>({ ...post, favorite: false}))))
       .catch(e => console.log(e.message))
@@ -51,7 +62,7 @@ function App() {
       <Route exact path="/allrecipes/Favorites" render={(props) => (posts && posts.filter(post=>post.favorite).length >=1 ?  <RecipeCards {...props} posts={posts.filter(post=>post.favorite)} addFavorite={addFavorite}/> 
       : <h2 className="container">Please choose some favorites first</h2>)} />
       <Route path="/allrecipes/:category" render={(props)=> (posts ?  posts && <RecipeCards {...props} posts={posts} addFavorite={addFavorite} /> : <Spinner />)}/>
-      
+      <Route exact path="/uploadsection" component={Uploads} />
       <Route exact path="/" render={(props) => posts && <Home {...props} posts={posts} addFavorite={addFavorite} />} />
     </Switch>
 

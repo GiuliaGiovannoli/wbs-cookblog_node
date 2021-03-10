@@ -56,7 +56,7 @@ export default function RecipeCards({ posts, addFavorite }) {
 
     useEffect(()=>{
         if(category){
-            fetch(`http://localhost:4000/recipes/${category}`)
+            fetch(`http://localhost:4000/api/recipes/${category}`)
             .then(res => res.json())
             .then (data => setCategoryResult(data[0]))
         }

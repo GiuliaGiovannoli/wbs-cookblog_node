@@ -39,14 +39,14 @@ export default function RecipePage({posts}) {
     const { slug } = useParams()
     const [slugResult, setSlugResult]= useState()
 
-    useEffect(()=>{
-        if(slug){
-          fetch(`http://localhost:4000/recipes/slug/${slug}`)
-          .then(res => res.json())
-          .then (data => setSlugResult(data[0]))
-          .catch(e => console.log(e.message))
+useEffect(()=>{
+    if(slug){
+        fetch(`http://localhost:4000/api/recipes/slug/${slug}`)
+        .then(res => res.json())
+        .then (data => setSlugResult(data[0]))
+        .catch(e => console.log(e.message))
         }
-      },[slug])
+    },[slug])
 
 
 return (
