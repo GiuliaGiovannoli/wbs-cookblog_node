@@ -62,7 +62,7 @@ function App() {
       <Route exact path="/allrecipes/Favorites" render={(props) => (posts && posts.filter(post=>post.favorite).length >=1 ?  <RecipeCards {...props} posts={posts.filter(post=>post.favorite)} addFavorite={addFavorite}/> 
       : <h2 className="container">Please choose some favorites first</h2>)} />
       <Route path="/allrecipes/:category" render={(props)=> (posts ?  posts && <RecipeCards {...props} posts={posts} addFavorite={addFavorite} /> : <Spinner />)}/>
-      <Route exact path="/uploadsection" component={Uploads} />
+      <Route exact path="/uploadsection" render={(props) => (posts && <Uploads {...props} posts={posts} />)} />
       <Route exact path="/" render={(props) => posts && <Home {...props} posts={posts} addFavorite={addFavorite} />} />
     </Switch>
 
