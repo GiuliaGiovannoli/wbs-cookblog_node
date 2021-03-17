@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Uploads() {
+export default function Uploads({posts}) {
 
     const classes = useStyles();
 
@@ -36,7 +36,7 @@ export default function Uploads() {
         title: "",
         ingredients: "",
         description: "",
-        signature: ""
+        author: ""
       });
 
   const handleInput = (e) => {
@@ -47,14 +47,13 @@ export default function Uploads() {
   };
 
 
-
     return(
         <div>
-
+<form id="" onSubmit="">
     <div className="container">
       <h1>Create your Recipe </h1>
       <br />
-      <form id="" onSubmit="">
+      
         <div className="flex-container">
         <label className="labels" htmlFor="title">Recipe Title: </label>
         <input className="inputs" type="text" placeholder="Recipe title" name="title" value={userInput.title} 
@@ -66,7 +65,7 @@ export default function Uploads() {
         <input className="inputs" type="text" placeholder="Recipe description" name="description" value={userInput.description}
         onChange={handleInput}></input>
         <label className="labels" htmlFor="title">By: </label>
-        <input className="inputs" type="text" placeholder="Your Signature" name="signature" value={userInput.signature} 
+        <input className="inputs" type="text" placeholder="By Author" name="author" value={userInput.author} 
         onChange={handleInput}></input>
         <br />
         <button className="button">
@@ -75,14 +74,14 @@ export default function Uploads() {
         </label>
       </button>
             </div>
-        </form>
       </div>
+      </form>
 
       <br />
       <br />
- 
-         { userInput.title.length >= 1 || userInput.signature.length >= 1 || userInput.description.length >= 1 || userInput.ingredients.length >= 1 ? 
-           <div id="recipeGrid upload">
+
+        { userInput.title.length >= 1 || userInput.author.length >= 1 || userInput.description.length >= 1 || userInput.ingredients.length >= 1 ? 
+          <div id="recipeGrid upload">
                 <CardActionArea component="a" href="#">
         <Card className={classes.card} id="recipeCard">
         <div className={classes.cardDetails}>
@@ -103,7 +102,7 @@ export default function Uploads() {
                 </Typography> 
                 <Typography variant="subtitle1" id="recipeText">
                 <br></br>
-                By {userInput.signature}
+                By {userInput.author}
                 </Typography>   
             </CardContent>
             </div>
@@ -114,12 +113,12 @@ export default function Uploads() {
         : <h5 className="uploadText">Check here your Recipe before you publish it</h5>
 }
 
-<button className="button publish">
-        <label className="labels"> Publish your Recipe 
-        <input hidden onChange=""/>
-        </label>
-      </button>
+{ userInput.title.length >= 1 && userInput.author.length >= 1 && userInput.description.length >= 1 && userInput.ingredients.length >= 1 ?
+  (<Link className="link center" to="/allrecipes/all/all" onChange={posts.push({userInput})}>
+Publish your Recipe 
+</Link>): (<p>Try!</p>)}
 
 </div>
+
     )
 }

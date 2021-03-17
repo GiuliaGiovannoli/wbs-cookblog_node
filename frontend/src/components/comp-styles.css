@@ -27,6 +27,10 @@ h1, h2, span.MuiTypography-root {
     font-size: 1.5em;
 }
 
+.center {
+    margin: 2% 38%;
+}
+
 #collection, .categories {
     display: flex;
     flex-wrap: wrap;
@@ -82,5 +86,11 @@ h1, h2, span.MuiTypography-root {
     #pic {
         width: 35%;
         margin: 1%;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .center {
+        margin: 5%;
     }
 }

@@ -83,7 +83,7 @@ export default function RecipeCards({ posts, addFavorite }) {
         <Typography variant="body2" color="textSecondary" component="p" id="recipeText">
         <div className="slug">
         <Link className="link" to={`/allrecipes/all/${post.slug}`}>
-        {post.slug}
+        Show more
         </Link>
         </div>
         </Typography>
@@ -114,7 +114,7 @@ export default function RecipeCards({ posts, addFavorite }) {
         <Typography variant="body2" color="textSecondary" component="p" id="recipeText">
         <div className="slug">
         <Link className="link" to={`/allrecipes/all/${categoryResult && categoryResult.slug}`}>
-        {categoryResult && categoryResult.slug}
+        Show more
         </Link>
         </div>
         </Typography>
@@ -129,6 +129,8 @@ export default function RecipeCards({ posts, addFavorite }) {
             </Box>
         )
         }
+
+        <Link className="link center" to="/allrecipes/all/all">Show All of The Recipes</Link>
 </>
     )
 }
