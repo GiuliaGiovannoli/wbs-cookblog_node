@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link, useParams } from "react-router-dom"
 
 import './comp-styles.css';
@@ -13,6 +13,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
+import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import { red } from '@material-ui/core/colors';
 
@@ -28,7 +29,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Uploads({posts}) {
+export default function Uploads({ posts }) {
 
     const classes = useStyles();
 
@@ -36,7 +37,8 @@ export default function Uploads({posts}) {
         title: "",
         ingredients: "",
         description: "",
-        author: ""
+        author: "",
+        pic: ""
       });
 
   const handleInput = (e) => {
@@ -46,10 +48,18 @@ export default function Uploads({posts}) {
     }));
   };
 
+  const [pic, setPic] = useState()
+
+const handleImageInputChange = ({ target }) => {
+    setPic(window.URL.createObjectURL(target.files[0]));
+    target.value = "";
+  };
+
+
 
     return(
         <div>
-<form id="" onSubmit="">
+<form id="" onSubmit="" method="POST">
     <div className="container">
       <h1>Create your Recipe </h1>
       <br />
@@ -65,14 +75,15 @@ export default function Uploads({posts}) {
         <input className="inputs" type="text" placeholder="Recipe description" name="description" value={userInput.description}
         onChange={handleInput}></input>
         <label className="labels" htmlFor="title">By: </label>
-        <input className="inputs" type="text" placeholder="By Author" name="author" value={userInput.author} 
+        <input className="inputs" type="text" placeholder="By Author" name="author"  
         onChange={handleInput}></input>
         <br />
-        <button className="button">
-        <label className="labels" htmlFor="fileInput"> Recipe Picture 
-        <input id="fileInput" type="file" accept="image/*" hidden onChange=""/>
-        </label>
-      </button>
+            <Button>
+              <label htmlFor="fileInput" className="labels">
+                Load Pic
+                <input id="fileInput" name="fileInput" type="file" accept=".jpg, .jpeg, .png" onChange={handleImageInputChange} value={userInput.pic} hidden/>
+              </label>
+            </Button>
             </div>
       </div>
       </form>
@@ -106,17 +117,17 @@ export default function Uploads({posts}) {
                 </Typography>   
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image="" title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={pic} title="" id="pic"/>
         </Card>
         </CardActionArea>
         </div>
         : <h5 className="uploadText">Check here your Recipe before you publish it</h5>
 }
 
-{ userInput.title.length >= 1 && userInput.author.length >= 1 && userInput.description.length >= 1 && userInput.ingredients.length >= 1 ?
-  (<Link className="link center" to="/allrecipes/all/all" onChange={posts.push({userInput})}>
+{ userInput.title.length >= 1 && userInput.author.length >= 1 && userInput.description.length >= 1 && userInput.ingredients.length >= 1 && pic ?
+  (<Link className="link center" to="/allrecipes/all/all" onChange={posts.push({userInput, pic})}>
 Publish your Recipe 
-</Link>): (<p>Try!</p>)}
+</Link>): (<p></p>)}
 
 </div>
 

@@ -53,8 +53,8 @@ useEffect(()=>{
 
 return (
     <>
+    <div id="recipeGrid">
     { slug != 'all' ? (
-        <div id="recipeGrid">
                 <CardActionArea component="a" href="#">
         <Card className={classes.card} id="recipeCard">
         <div className={classes.cardDetails}>
@@ -85,15 +85,12 @@ return (
             <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${slugResult && slugResult.slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>
-        </div>
-
     ) :
         (posts && 
             posts.map((post) => {
                 return(
             post.id < 7 ? 
-                    (<div id="recipeGrid">
-                <CardActionArea component="a" href="#">
+                    ( <CardActionArea component="a" href="#">
         <Card className={classes.card} id="recipeCard">
         <div className={classes.cardDetails}>
             <CardContent>
@@ -116,17 +113,15 @@ return (
                 Method: 
                 <br></br>
                 {post.description}
-                </Typography>
-                
+                </Typography>  
             </CardContent>
             </div>
             <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${post.slug}.png`} title="" id="pic"/>
         </Card>
-        </CardActionArea>
-        </div>)
+        </CardActionArea>)
         : (
-            post.userInput.title.length > 1 ? 
-            (<div id="recipeGrid">
+            post.pic ? 
+            (
                 <CardActionArea component="a" href="#">
         <Card className={classes.card} id="recipeCard">
         <div className={classes.cardDetails}>
@@ -152,15 +147,14 @@ return (
                 
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image={coco} title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={post.pic ? post.pic : coco} title="" id="pic"/>
         </Card>
-        </CardActionArea>
-        </div>) : ( null )
-        )
-                )
+        </CardActionArea>) : ( null )
+        ))
             }
         ) )
 }
+</div>
 </>
 )
 }

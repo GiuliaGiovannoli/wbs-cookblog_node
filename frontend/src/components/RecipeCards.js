@@ -68,7 +68,9 @@ export default function RecipeCards({ posts, addFavorite }) {
         { !category ? (
             <Box m={1} p={1} id="collection">
         {posts && posts.map((post) => {
-            return (<Box p={1} id="card">
+            return (
+                post.id < 7 ? 
+                (<Box p={1} id="card">
             <Card className={classes.root} id="recipe">
             <CardHeader id="recipeTitle"
         title={post.title} />
@@ -94,7 +96,9 @@ export default function RecipeCards({ posts, addFavorite }) {
         </IconButton>
         </CardActions>
     </Card>
-            </Box> )})}
+            </Box> )
+            : ( null )
+            )})}
             </Box>
         )
         : (
