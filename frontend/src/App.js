@@ -37,10 +37,10 @@ function App() {
     setPosts(newObjArr)
 }
 
-    // Everytime you are calling your backend, replace localhost:4000
+const BACKEND_URL = process.env.REACT_APP_PROD_URL
   
     useEffect(() => {
-      fetch('http://localhost:4000/api/recipes')
+      fetch(`${BACKEND_URL}api/recipes`)
       .then(res => res.json())
       .then(data => setPosts(data.map((post)=>({ ...post, favorite: false}))))
       .catch(e => console.log(e.message))
