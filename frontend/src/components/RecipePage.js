@@ -32,9 +32,11 @@ export default function RecipePage({posts}) {
     const { slug } = useParams()
     const [slugResult, setSlugResult]= useState()
 
+    const BACKEND_URL = process.env.REACT_APP_PROD_URL
+
 useEffect(()=>{
     if(slug){
-        fetch(`http://localhost:4000/api/recipes/slug/${slug}`)
+        fetch(`${BACKEND_URL}api/recipes/slug/${slug}`)
         .then(res => res.json())
         .then (data => setSlugResult(data[0]))
         .catch(e => console.log(e.message))
@@ -73,7 +75,7 @@ return (
                 
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${slugResult && slugResult.slug}.png`} title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={`${BACKEND_URL}${slugResult && slugResult.slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>
     ) :
@@ -107,7 +109,7 @@ return (
                 </Typography>  
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${post.slug}.png`} title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={`${BACKEND_URL}${post.slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>)
         : (

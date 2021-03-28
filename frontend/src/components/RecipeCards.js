@@ -49,9 +49,11 @@ export default function RecipeCards({ posts, addFavorite }) {
         setFavorite(true);
     }
 
+    const BACKEND_URL = process.env.REACT_APP_PROD_URL
+
     useEffect(()=>{
         if(category){
-            fetch(`http://localhost:4000/api/recipes/${category}`)
+            fetch(`${BACKEND_URL}api/recipes/${category}`)
             .then(res => res.json())
             .then (data => setCategoryResult(data[0]))
         }
@@ -69,7 +71,7 @@ export default function RecipeCards({ posts, addFavorite }) {
             <Card className={classes.root} id="recipe">
             <CardHeader id="recipeTitle"
         title={post.title} />
-        <CardMedia className={classes.media} image={`http://localhost:4000/${post.slug}.png`} title=""/>
+        <CardMedia className={classes.media} image={`${BACKEND_URL}${post.slug}.png`} title=""/>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p" id="recipeText">
         <p>By Chef {post.author}</p>
@@ -102,7 +104,7 @@ export default function RecipeCards({ posts, addFavorite }) {
             <Card className={classes.root} id="recipe">
             <CardHeader id="recipeTitle"
         title={categoryResult && categoryResult.title} />
-    <CardMedia className={classes.media} image={`http://localhost:4000/${categoryResult && categoryResult.slug}.png`} title=""/>
+    <CardMedia className={classes.media} image={`${BACKEND_URL}${categoryResult && categoryResult.slug}.png`} title=""/>
         <CardContent>
         <Typography variant="body2" color="textSecondary" component="p" id="recipeText">
         <p>By Chef {categoryResult && categoryResult.author}</p>

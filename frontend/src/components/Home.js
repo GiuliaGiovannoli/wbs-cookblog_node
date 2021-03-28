@@ -2,21 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom"
 
 import './comp-styles.css';
-import Box from '@material-ui/core/Box';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Hidden from '@material-ui/core/Hidden';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import Wewantyou from '../public/wewantyou.jpg'
 
@@ -41,6 +32,9 @@ export default function Home({ posts }) {
     const [randomNum, setRandomNum]= useState(0)
     
     useEffect(()=> setRandomNum(Math.floor(Math.random() * (posts.length))),[])
+
+    const BACKEND_URL = process.env.REACT_APP_PROD_URL
+
 
     return(
         <div>
@@ -103,7 +97,7 @@ Here you can upload your own Recipes and share them within our blog and be part 
                 
             </CardContent>
             </div>
-            <CardMedia className={classes.cardMedia} image={`http://localhost:4000/${posts[randomNum].slug}.png`} title="" id="pic"/>
+            <CardMedia className={classes.cardMedia} image={`${BACKEND_URL}${posts[randomNum].slug}.png`} title="" id="pic"/>
         </Card>
         </CardActionArea>
         </div>
