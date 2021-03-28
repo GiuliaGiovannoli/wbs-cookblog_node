@@ -18,18 +18,6 @@ app.get('/', (req, res) => {
 
 app.use(express.static(path.join(__dirname, '/public')));
 
-/* app.post('/', upload.single('profile_pic'), (req, res) => {
-    const {file, fileValidationError} = req
-    if (!file) {
-    res.status(400).send('Please upload a file') 
-    }
-    else if (fileValidationError) {
-    res.status(400).send(fileValidationError);
-    }
-    else {
-    res.status(200).json({pathToImage: `/uploads/${file.filename}`});}
-}) */
-
 
 app.listen(port, () => {
     console.log(`Server running and listening on port ${port}`)

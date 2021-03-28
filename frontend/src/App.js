@@ -14,7 +14,6 @@ import RecipePage from './components/RecipePage'
 import './App.css';
 
 /* let BACKEND_URL
-
 if (process.env.NODE_ENV === 'production') {
   BACKEND_URL = process.env.REACT_APP_PROD_URL // 'https://myapponheroku.herokuapp.com'
 } else {
@@ -25,18 +24,18 @@ if (process.env.NODE_ENV === 'production') {
 function App() {
 
   const [posts, setPosts] = useState();
-  const [slug, setSlug] = useState();
-  const [category, setCategory]= useState()
+  // const [slug, setSlug] = useState();
+  const [categoryResult, setCategoryResult]= useState()
 
   const addFavorite =(slug)=>{
-    console.log(slug) 
     const newObjArr= posts.map((prevPost) => {
           if (prevPost.slug===slug){
             return { ...prevPost,
               favorite: !prevPost.favorite
             } 
           } else return prevPost })
-    setPosts(newObjArr)}
+    setPosts(newObjArr)
+}
 
     // Everytime you are calling your backend, replace localhost:4000
   
@@ -67,6 +66,7 @@ function App() {
     </Switch>
 
     <Favorites />
+    <br></br>
     <Footer />
     </div>
   );
