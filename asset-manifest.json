@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/wbs-cookblog_node/static/css/main.c420bafd.chunk.css",
+    "main.js": "/wbs-cookblog_node/static/js/main.49f810e0.chunk.js",
+    "main.js.map": "/wbs-cookblog_node/static/js/main.49f810e0.chunk.js.map",
+    "runtime-main.js": "/wbs-cookblog_node/static/js/runtime-main.2b30ac99.js",
+    "runtime-main.js.map": "/wbs-cookblog_node/static/js/runtime-main.2b30ac99.js.map",
+    "static/css/2.fabbef47.chunk.css": "/wbs-cookblog_node/static/css/2.fabbef47.chunk.css",
+    "static/js/2.61cce1b0.chunk.js": "/wbs-cookblog_node/static/js/2.61cce1b0.chunk.js",
+    "static/js/2.61cce1b0.chunk.js.map": "/wbs-cookblog_node/static/js/2.61cce1b0.chunk.js.map",
+    "index.html": "/wbs-cookblog_node/index.html",
+    "static/css/2.fabbef47.chunk.css.map": "/wbs-cookblog_node/static/css/2.fabbef47.chunk.css.map",
+    "static/css/main.c420bafd.chunk.css.map": "/wbs-cookblog_node/static/css/main.c420bafd.chunk.css.map",
+    "static/js/2.61cce1b0.chunk.js.LICENSE.txt": "/wbs-cookblog_node/static/js/2.61cce1b0.chunk.js.LICENSE.txt",
+    "static/media/coco.207878f8.jpg": "/wbs-cookblog_node/static/media/coco.207878f8.jpg",
+    "static/media/index.css": "/wbs-cookblog_node/static/media/coco2.3ec19492.jpg",
+    "static/media/wewantyou.dc0d70bc.jpg": "/wbs-cookblog_node/static/media/wewantyou.dc0d70bc.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2b30ac99.js",
+    "static/css/2.fabbef47.chunk.css",
+    "static/js/2.61cce1b0.chunk.js",
+    "static/css/main.c420bafd.chunk.css",
+    "static/js/main.49f810e0.chunk.js"
+  ]
+}
