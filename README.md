@@ -12,4 +12,6 @@ This is a WBS coding school project for a cookingblog
 
 Tools here used: React, Javascript, Material UI, Node, Express, CSS and HTML 
 
+--------> For the deployed version please wait 15/20 seconds after clicking on the link. <----------------
+
 Thank you for checking the Project!
