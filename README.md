@@ -10,7 +10,7 @@ About this Project: this is a WBS coding school project for a cookingblog.
 
 - Router
 - Posting
-- Faavourites 
+- Add to favourites 
 - Search and Filtering
 
 ## Technologies
